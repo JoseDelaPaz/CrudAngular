@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5>
+            {{ titulo }}
+            <div *ngIf="loading" class="spinner-border float-end" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </h5>
+          <span *ngIf="submitted && createEmpleado.invalid" class="badge"
+            >TODOS LOS COMPOS SON OBLICATIOS</span
+          >
+          <form
+            class="mt-4"
+            [formGroup]="createEmpleado"
+            (ngSubmit)="agregarEditarEmpleado()"
+          >
+            <div class="row">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nombre"
+                  placeholder="Nombre"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="apellido"
+                  placeholder="Apellido"
+                />
+              </div>
+              <input
+                type="text"
+                class="form-control form-control-lg mt-3"
+                formControlName="documento"
+                placeholder="Documentos"
+              />
+              <input
+                type="number"
+                class="form-control form-control-lg mt-3"
+                formControlName="salario"
+                placeholder="Salario"
+              />
+            </div>
+            <div class="row mt-3">
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Guardar
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  type="text"
+                  class="btn btn-success btn-lg"
+                  routerLink="/list-empleados"
+                >
+                  Volver
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
